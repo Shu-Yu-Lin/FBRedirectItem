@@ -1,2 +1,2 @@
 # FBRedirectItem
-GA redirect for item1
+GA redirect for items
