@@ -14,11 +14,7 @@
     const params = Object.fromEntries(urlSearchParams.entries());
     const client_id = params.user_id;
     const user_id = params.h5_uuid;
-    
-    const alertClient = "client_id" + client_id;
-    const alertUser = "user_id" + user_id;
-    alert(alertClient);
-    alert(alertUser);
+
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
