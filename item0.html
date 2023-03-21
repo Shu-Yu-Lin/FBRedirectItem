@@ -5,32 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
-  <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J284FJ6CS"></script>
-    <script>
-        const urlSearchParams = new URLSearchParams(window.location.search);
-        const params = Object.fromEntries(urlSearchParams.entries());
-        const client_id = params.user_id;
-        const user_id = params.h5_uuid;
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-5J284FJ6CS', [
-            {'user_id': user_id},
-            {'client_id': client_id}
-        ]);
-
-        gtag('event', 'raid_to_web_fb');
-    </script>
 </head>
 <body>
   <p>Loading...</p>
 
   <script>
-    window.location.replace("https://secom.pros.is/4rzd3g")
+    const measurement_id = 'G-5J284FJ6CS';
+    const api_secret = 'E55ta3V-Rxqn6nkfSkaPKA';
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const client_id = params.user_id;
+    const user_id = params.h5_uuid;
+
+    fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
+        method: "POST",
+        body: JSON.stringify({
+            client_id: client_id,
+            user_id: user_id,
+            events: [{
+                name: 'raid_to_web_fb',
+                params: {},
+            }]
+        })
+    }).then(res => {
+      window.location.replace("https://secom.pros.is/4rzd3g")
+    }).catch(ex => {
+      window.location.replace("https://secom.pros.is/4rzd3g")
+    });
   </script>
   
 </body>
